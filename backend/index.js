@@ -11,7 +11,6 @@ app.use(cors(
     {
         // origin: 'http://localhost:3000',
         origin: 'https://mymernecomm-frontend.onrender.com',
-        // origin: "*",
         credentials: true
     }
 ))
