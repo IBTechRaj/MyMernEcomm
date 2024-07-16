@@ -1,5 +1,5 @@
 // const backendDomin = "http://localhost:8080"
-const backendDomin = "https://mymernecomm.onrender.com:8080"
+const backendDomin = "https://mymernecomm.onrender.com"
 
 const SummaryApi = {
     signUP: {

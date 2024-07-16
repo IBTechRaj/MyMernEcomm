@@ -8,12 +8,12 @@ const router = require('./routes')
 
 const app = express()
 app.use(cors(
-    {
-        // origin: 'http://localhost:3000',
-        origin: 'https://mymernecomm-frontend.onrender.com',
-        // origin: "*",
-        credentials: true
-    }
+    // {
+    // origin: 'http://localhost:3000',
+    // origin: 'https://mymernecomm-frontend.onrender.com',
+    // origin: "*",
+    // credentials: true
+    // }
 ))
 app.use(express.json())
 app.use(cookieParser())
