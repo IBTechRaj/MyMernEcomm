@@ -5,8 +5,8 @@ const getCategoryProduct = async (req, res) => {
     // console.log("category 1", productCategory)
     // try {
 
-    const productCategory = []
-    productCategory = await productModel.distinct("category")
+    // const productCategory = []
+    const productCategory = await productModel.distinct("category")
 
     console.log("category 2", productCategory)
 
