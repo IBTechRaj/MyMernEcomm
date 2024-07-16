@@ -2,7 +2,7 @@ const productModel = require("../../models/productModel")
 
 
 const getCategoryProduct = async (req, res) => {
-    console.log("category 1", productCategory)
+    // console.log("category 1", productCategory)
     // try {
 
     const productCategory = []
