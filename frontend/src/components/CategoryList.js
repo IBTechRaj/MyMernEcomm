@@ -11,11 +11,11 @@ const CategoryList = () => {
     const fetchCategoryProduct = async () => {
         setLoading(true)
         const response = await fetch(SummaryApi.categoryProduct.url)
-        console.log('resp', response)
+        // console.log('resp', response)
         const dataResponse = await response.json()
         setLoading(false)
         setCategoryProduct(dataResponse.data)
-        console.log('c list', dataResponse)
+        // console.log('c list', dataResponse)
     }
 
     useEffect(() => {
