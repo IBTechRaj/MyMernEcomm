@@ -30,9 +30,9 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('here')
-        console.log('url ', SummaryApi.signIn.url)
-        console.log('d', data)
+        // console.log('here')
+        // console.log('url ', SummaryApi.signIn.url)
+        // console.log('d', data)
         const dataResponse = await fetch(SummaryApi.signIn.url, {
             method: SummaryApi.signIn.method,
             credentials: 'include',
