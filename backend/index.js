@@ -9,8 +9,8 @@ const router = require('./routes')
 const app = express()
 app.use(cors(
     {
-        origin: 'http://localhost:3000',
-        // origin: 'https://mymernecomm-frontend.onrender.com',
+        // origin: 'http://localhost:3000',
+        origin: 'https://mymernecomm-frontend.onrender.com',
         credentials: true
     }
 ))
