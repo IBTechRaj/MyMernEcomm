@@ -24,8 +24,8 @@ function App() {
     const dataApi = await dataResponse.json()
 
     if (dataApi.success) {
-      console.log('fetching u d'),
-        dispatch(setUserDetails(dataApi.data))
+      console.log('fetching u d')
+      dispatch(setUserDetails(dataApi.data))
     }
     console.log('unable to fetch u d')
   }
