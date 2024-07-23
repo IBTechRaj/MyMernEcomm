@@ -27,7 +27,9 @@ function App() {
       console.log('fetching u d')
       dispatch(setUserDetails(dataApi.data))
     }
-    console.log('unable to fetch u d')
+    else {
+      console.log('unable to fetch u d')
+    }
   }
 
   const fetchUserAddToCart = async () => {
