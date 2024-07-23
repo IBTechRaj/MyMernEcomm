@@ -36,12 +36,14 @@ async function userSignInController(req, res) {
                 secure: true
             }
 
+
             res.cookie("token", token, tokenOption).status(200).json({
                 message: "Login successfully",
                 data: token,
                 success: true,
                 error: false
             })
+            console.log('token - userSignin********************************************************', token)
 
         } else {
             throw new Error("Please check Password")
