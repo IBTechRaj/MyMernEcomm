@@ -5,7 +5,7 @@ async function authToken(req, res, next) {
         const token = req.cookies?.token
         console.log('req1', req)
         // console.log("token1", token)
-        console.log('token - authToken********************************************************', token)
+        console.log('token - authToken ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', token)
         if (!token) {
             return res.status(200).json({
                 message: "Please Login!...!",
@@ -17,7 +17,7 @@ async function authToken(req, res, next) {
         jwt.verify(token, process.env.TOKEN_SECRET_KEY, function (err, decoded) {
             console.log(err)
             console.log("decoded", decoded)
-            console.log('token - authToken Verify ********************************************************', token)
+            console.log('token - authToken Verify gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', token)
 
             if (err) {
                 console.log("error auth", err)

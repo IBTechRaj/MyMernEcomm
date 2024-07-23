@@ -43,7 +43,7 @@ async function userSignInController(req, res) {
                 success: true,
                 error: false
             })
-            console.log('token - userSignin********************************************************', token)
+            console.log('token - userSignin gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', token)
 
         } else {
             throw new Error("Please check Password")
