@@ -29,3 +29,15 @@ connectDB().then(() => {
         console.log("Server is running " + PORT)
     })
 })
+
+app.use(session({
+    secret: process.env.sessionSecret, // your secret key to check session
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 604800000, //one week(1000*60*60*24*7)
+        sameSite: "none",
+        secure: true
+    },
+    store: store
+}));
