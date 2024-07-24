@@ -39,5 +39,5 @@ app.use(session({
         sameSite: "none",
         secure: true
     },
-    store: store
+    store: connectDB
 }));
