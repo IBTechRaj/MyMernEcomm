@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
+import { LiaCookieSolid } from 'react-icons/lia';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -47,6 +48,7 @@ const Login = () => {
 
         if (dataApi.success) {
             toast.success(dataApi.message)
+            cookies.set('token', dataApi.data, options)
             navigate('/')
             fetchUserDetails()
             fetchUserAddToCart()
