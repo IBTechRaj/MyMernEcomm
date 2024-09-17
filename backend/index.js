@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config()
 const connectDB = require('./config/db')
 const router = require('./routes')
-const session = require("express-session");
+// const session = require("express-session");
 
 const app = express()
 app.use(cors(
@@ -14,7 +14,7 @@ app.use(cors(
         credentials: true
     }
 ))
-app.set("trust proxy", 1)
+// app.set("trust proxy", 1)
 app.use(express.json())
 app.use(cookieParser())
 
@@ -30,14 +30,14 @@ connectDB().then(() => {
     })
 })
 
-app.use(session({
-    secret: process.env.sessionSecret, // your secret key to check session
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 604800000, //one week(1000*60*60*24*7)
-        sameSite: "none",
-        secure: true
-    },
-    store: connectDB
-}));
+// app.use(session({
+//     secret: process.env.sessionSecret, // your secret key to check session
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         maxAge: 604800000, //one week(1000*60*60*24*7)
+//         sameSite: "none",
+//         secure: true
+//     },
+//     store: connectDB
+// }));
