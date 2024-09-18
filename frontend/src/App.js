@@ -23,6 +23,8 @@ function App() {
 
     const dataApi = await dataResponse.json()
 
+    localStorage.setItem('token', dataApi.data)
+
     if (dataApi.success) {
       console.log('fetching u d')
       dispatch(setUserDetails(dataApi.data))
