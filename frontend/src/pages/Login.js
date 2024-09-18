@@ -48,7 +48,8 @@ const Login = () => {
 
         if (dataApi.success) {
             toast.success(dataApi.message)
-            cookies.set('token', dataApi.data, options)
+            // cookies.set('token', dataApi.data, options)
+            localStorage.setItem('token', dataApi.data)
             navigate('/')
             fetchUserDetails()
             fetchUserAddToCart()
