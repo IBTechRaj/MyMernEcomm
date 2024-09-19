@@ -22,7 +22,7 @@ function App() {
     })
 
     const dataApi = await dataResponse.json()
-
+    console.log('dataApi', dataApi)
     localStorage.setItem('token', dataApi.data)
 
     if (dataApi.success) {
