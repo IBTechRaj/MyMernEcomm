@@ -44,14 +44,15 @@ const Login = () => {
         })
 
         const dataApi = await dataResponse.json()
-        console.log('data ai', dataApi)
+        console.log('data Api', dataApi)
 
         if (dataApi.success) {
             toast.success(dataApi.message)
-            document.cookie = "token=({dataApi.data})"
+            // document.cookie = "token=({dataApi.data})"
             localStorage.setItem('token', dataApi.data)
             navigate('/')
             fetchUserDetails()
+            console.log(fetchUserDetails())
             fetchUserAddToCart()
         }
 
