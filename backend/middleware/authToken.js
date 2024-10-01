@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 async function authToken(req, res, next) {
     try {
         const token = req.cookies?.token
-        console.log('req1', req)
+        console.log('req1', req.cookies)
         // console.log("token1", token)
         console.log('token - authToken   1', token)
         if (!token) {
