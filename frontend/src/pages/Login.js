@@ -52,7 +52,7 @@ const Login = () => {
             localStorage.setItem('token', dataApi.data)
             navigate('/')
             fetchUserDetails()
-            console.log(fetchUserDetails())
+            console.log('fud', fetchUserDetails())
             fetchUserAddToCart()
         }
 
