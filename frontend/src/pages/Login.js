@@ -179,7 +179,8 @@ const Login = () => {
         console.log('data Api', dataApi)
 
         const token = dataApi.
-            document.cookie = `token=${token}; path=/; Secure`;
+            console.log('tkn', token)
+        document.cookie = `token=${token}; path=/; Secure`;
         if (dataApi.success) {
             toast.success(dataApi.message)
             navigate('/')
