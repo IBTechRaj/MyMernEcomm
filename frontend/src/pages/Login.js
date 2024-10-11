@@ -178,8 +178,8 @@ const Login = () => {
         const dataApi = await dataResponse.json()
         console.log('data Api', dataApi)
 
-        const token = dataApi.
-            console.log('tkn', token)
+        const token = dataApi.data
+        console.log('tkn', token)
         document.cookie = `token=${token}; path=/; Secure`;
         if (dataApi.success) {
             toast.success(dataApi.message)
