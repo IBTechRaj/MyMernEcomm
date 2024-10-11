@@ -164,7 +164,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        document.cookie = `token=${token}; path=/; Secure`;
+
 
         const dataResponse = await fetch(SummaryApi.signIn.url, {
             method: SummaryApi.signIn.method,
@@ -176,7 +176,10 @@ const Login = () => {
         })
 
         const dataApi = await dataResponse.json()
+        console.log('data Api', dataApi)
 
+        const token = dataApi.
+            document.cookie = `token=${token}; path=/; Secure`;
         if (dataApi.success) {
             toast.success(dataApi.message)
             navigate('/')
