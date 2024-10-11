@@ -164,7 +164,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        document.cookie = `token=${token}; path=/; Secure; HttpOnly`;
+        document.cookie = `token=${token}; path=/; Secure`;
 
         const dataResponse = await fetch(SummaryApi.signIn.url, {
             method: SummaryApi.signIn.method,
