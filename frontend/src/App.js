@@ -95,8 +95,8 @@ function App() {
 
   const fetchUserDetails = async () => {
     // const token = dataApi.data
-    console.log('tkn app.js', token)
-    document.cookie = `token=${token}; path=/; Secure`;
+    // console.log('tkn app.js', token)
+    // document.cookie = `token=${token}; path=/; Secure`;
     const dataResponse = await fetch(SummaryApi.current_user.url, {
       method: SummaryApi.current_user.method,
       credentials: 'include'
