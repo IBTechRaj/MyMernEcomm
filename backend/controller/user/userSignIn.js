@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const userModel = require('../../models/userModel')
 const jwt = require('jsonwebtoken');
+const nodemon = require('nodemon');
 
 async function userSignInController(req, res) {
 
@@ -32,7 +33,8 @@ async function userSignInController(req, res) {
             const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
 
             const tokenOption = {
-                // httpOnly: true,
+                httpOnly: true,
+                sameSite: "none",
                 secure: true
             }
 
