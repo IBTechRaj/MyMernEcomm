@@ -278,7 +278,7 @@ import { toast } from 'react-toastify';
 import Context from '../context';
 
 import axios from 'axios';
-
+axios.defaults.withCredentials = true;
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [data, setData] = useState({
