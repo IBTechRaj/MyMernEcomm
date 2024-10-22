@@ -166,8 +166,8 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        const dataResponse = await axios.post(SummaryApi.signIn.url, JSON.stringify(data))
+        const { email, password } = data
+        const dataResponse = await axios.post(SummaryApi.signIn.url, email, password)
 
 
         // const dataResponse = await fetch(SummaryApi.signIn.url, {
