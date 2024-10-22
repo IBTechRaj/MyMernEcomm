@@ -179,7 +179,7 @@ const Login = () => {
         //     body: JSON.stringify(data)
         // })
 
-        const dataApi = await dataResponse.json()
+        const dataApi = await dataResponse //.json()
         console.log('data Api', dataApi)
 
         const token = dataApi.data
