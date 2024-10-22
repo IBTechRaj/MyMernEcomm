@@ -141,6 +141,8 @@ import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
 
+import axios from 'axios';
+
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [data, setData] = useState({
@@ -165,15 +167,17 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        const dataResponse = await axios.post(SummaryApi.signIn.url, { email, password })
 
-        const dataResponse = await fetch(SummaryApi.signIn.url, {
-            method: SummaryApi.signIn.method,
-            credentials: 'include',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
+
+        // const dataResponse = await fetch(SummaryApi.signIn.url, {
+        //     method: SummaryApi.signIn.method,
+        //     credentials: 'include',
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(data)
+        // })
 
         const dataApi = await dataResponse.json()
         console.log('data Api', dataApi)
