@@ -171,7 +171,7 @@ import axios from 'axios'
 function App() {
   const dispatch = useDispatch()
   const [cartProductCount, setCartProductCount] = useState(0)
-
+  axios.defaults.withCredentials = true;
   // const fetchUserDetails = async () => {
   //   const dataResponse = await fetch(SummaryApi.current_user.url, {
   //     method: SummaryApi.current_user.method,
@@ -187,7 +187,7 @@ function App() {
   // }
 
   const fetchUserDetails = async () => {
-    const dataResponse = await axios.get(SummaryApi.current_user.url, { withcredentials: true }
+    const dataResponse = await axios.get(SummaryApi.current_user.url, { withCredentials: true }
     )
 
     // const dataApi = await dataResponse.json()
