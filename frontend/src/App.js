@@ -166,21 +166,35 @@ import Context from './context';
 import { useDispatch } from 'react-redux';
 import { setUserDetails } from './store/userSlice';
 
+import axios from 'axios'
+
 function App() {
   const dispatch = useDispatch()
   const [cartProductCount, setCartProductCount] = useState(0)
 
+  // const fetchUserDetails = async () => {
+  //   const dataResponse = await fetch(SummaryApi.current_user.url, {
+  //     method: SummaryApi.current_user.method,
+  //     credentials: 'include'
+  //   })
+
+  //   const dataApi = await dataResponse.json()
+  //   console.log('fetch u d dataapi', dataApi)
+
+  //   if (dataApi.success) {
+  //     dispatch(setUserDetails(dataApi.data))
+  //   }
+  // }
+
   const fetchUserDetails = async () => {
-    const dataResponse = await fetch(SummaryApi.current_user.url, {
-      method: SummaryApi.current_user.method,
-      credentials: 'include'
-    })
+    const dataResponse = await axios.get(SummaryApi.current_user.url, { withcredentials: true }
+    )
 
-    const dataApi = await dataResponse.json()
-    console.log('fetch u d dataapi', dataApi)
+    // const dataApi = await dataResponse.json()
+    console.log('fetch u d dataapi', dataResponse)
 
-    if (dataApi.success) {
-      dispatch(setUserDetails(dataApi.data))
+    if (dataResponse.data.success) {
+      dispatch(setUserDetails(dataResponse.data))
     }
   }
 
