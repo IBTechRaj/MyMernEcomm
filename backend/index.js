@@ -54,7 +54,8 @@ const app = express()
 app.use(cors({
     // origin: 'http://localhost:3000',
     origin: 'https://mymernecomm-frontend.onrender.com',
-    credentials: true
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
 }))
 app.use(express.json())
 app.use(cookieParser())
