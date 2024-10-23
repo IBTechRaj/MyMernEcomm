@@ -318,7 +318,7 @@ const Login = () => {
 
         console.log('dr', dataResponse)
         if (dataResponse.data.success) {
-            toast.success(dataResponse.message)
+            toast.success(dataResponse.data.message)
             navigate('/')
             fetchUserDetails()
             fetchUserAddToCart()
