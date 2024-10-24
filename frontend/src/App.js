@@ -189,12 +189,11 @@ function App() {
   console.log('tooook', token)
   const fetchUserDetails = async () => {
     try {
-      const dataResponse = await axios.get(SummaryApi.current_user.url, //{ withCredentials: true }
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
+      const dataResponse = await axios.get(SummaryApi.current_user.url, {
+        headers: {
+          'Authorization': `Bearer ${token}`
         }
+      }
       )
       const dataApi = await dataResponse.json()
       console.log('fetch u d dataapi', dataApi)
