@@ -196,10 +196,10 @@ function App() {
       }
       )
       // const dataApi = await dataResponse.json()
-      console.log('fetch u d dataapi', dataResponse.data)
+      console.log('fetch u d dataapi', dataResponse.data.data)
 
       if (dataResponse.data.success) {
-        dispatch(setUserDetails(dataResponse.data))
+        dispatch(setUserDetails(dataResponse.data.data))
       }
     }
     catch (error) {
