@@ -191,7 +191,7 @@ function App() {
     const dataResponse = await axios.get(SummaryApi.current_user.url, //{ withCredentials: true }
       {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         }
       }
     )
