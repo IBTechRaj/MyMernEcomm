@@ -209,15 +209,27 @@ function App() {
 
   }
 
+  // const fetchUserAddToCart = async () => {
+  //   const dataResponse = await fetch(SummaryApi.addToCartProductCount.url, {
+  //     method: SummaryApi.addToCartProductCount.method,
+  //     credentials: 'include'
+  //   })
+
+  //   const dataApi = await dataResponse.json()
+
+  //   setCartProductCount(dataApi?.data?.count)
+  // }
+
   const fetchUserAddToCart = async () => {
     const dataResponse = await fetch(SummaryApi.addToCartProductCount.url, {
-      method: SummaryApi.addToCartProductCount.method,
-      credentials: 'include'
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     })
 
-    const dataApi = await dataResponse.json()
+    // const dataApi = await dataResponse.json()
 
-    setCartProductCount(dataApi?.data?.count)
+    setCartProductCount(dataResponse?.data?.count)
   }
 
   useEffect(() => {
