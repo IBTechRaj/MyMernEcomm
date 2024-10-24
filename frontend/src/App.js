@@ -195,8 +195,8 @@ function App() {
         }
       }
       )
-      const dataApi = await dataResponse.json()
-      console.log('fetch u d dataapi', dataApi)
+      // const dataApi = await dataResponse.json()
+      console.log('fetch u d dataapi', dataResponse.data)
 
       if (dataResponse.data.success) {
         dispatch(setUserDetails(dataResponse.data))
