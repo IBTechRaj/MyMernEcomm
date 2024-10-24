@@ -185,7 +185,8 @@ function App() {
   //     dispatch(setUserDetails(dataApi.data))
   //   }
   // }
-
+  const token = localStorage.getItem('token')
+  console.log('tooook', token)
   const fetchUserDetails = async () => {
     const dataResponse = await axios.get(SummaryApi.current_user.url, //{ withCredentials: true }
       {
@@ -195,8 +196,7 @@ function App() {
       }
     )
 
-    const token = localStorage.getItem('token')
-    console.log('tooook', token)
+
     // const dataApi = await dataResponse.json()
     console.log('fetch u d dataapi', dataResponse)
 
