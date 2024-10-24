@@ -5,6 +5,23 @@ async function authToken(req, res, next) {
         const token = req.cookies?.token
         console.log('req1', req.cookies)
         // console.log("token1", token)
+
+
+
+        const authHeader = req.headers['authorization']; // Get the Authorization header
+        if (!authHeader) {
+            return res.status(401).json({ message: 'Authorization header missing' });
+        }
+
+        token = authHeader.split(' ')[1]; // Extract the token (after "Bearer")
+        if (!token) {
+            return res.status(401).json({ message: 'Token missing' });
+        }
+
+
+
+
+
         console.log('token - authToken   1', token)
         if (!token) {
             return res.status(200).json({
