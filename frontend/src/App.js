@@ -188,14 +188,18 @@ function App() {
   const token = localStorage.getItem('token')
   console.log('tooook', token)
   const fetchUserDetails = async () => {
-    const dataResponse = await axios.get(SummaryApi.current_user.url, //{ withCredentials: true }
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`
+    try {
+      const dataResponse = await axios.get(SummaryApi.current_user.url, //{ withCredentials: true }
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         }
-      }
-    )
-
+      )
+    }
+    catch (error) {
+      console.error('Error fetching user details:', error);
+    }
 
     const dataApi = await dataResponse.json()
     console.log('fetch u d dataapi', dataApi)
