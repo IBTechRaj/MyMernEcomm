@@ -317,6 +317,7 @@ const Login = () => {
         // })
 
         console.log('dr', dataResponse)
+        localStorage.setItem('token', dataResponse.data.data)
         if (dataResponse.data.success) {
             toast.success(dataResponse.data.message)
             navigate('/')

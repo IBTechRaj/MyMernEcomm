@@ -190,6 +190,8 @@ function App() {
     const dataResponse = await axios.get(SummaryApi.current_user.url, { withCredentials: true }
     )
 
+    const token = localStorage.getItem('token')
+    console.log('tooook', token)
     // const dataApi = await dataResponse.json()
     console.log('fetch u d dataapi', dataResponse)
 
