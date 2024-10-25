@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
 import ROLE from '../common/role';
 import Context from '../context';
+import axios from 'axios'
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user)
@@ -23,22 +24,45 @@ const Header = () => {
   const searchQuery = URLSearch.getAll("q")
   const [search, setSearch] = useState(searchQuery)
 
+  const token = localStorage.getItem('token')
+
+  // const handleLogout = async () => {
+  //   const fetchData = await fetch(SummaryApi.logout_user.url, {
+  //     method: SummaryApi.logout_user.method,
+  //     credentials: 'include'
+  //   })
+
+  //   const data = await fetchData.json()
+
+  //   if (data.success) {
+  //     toast.success(data.message)
+  //     dispatch(setUserDetails(null))
+  //     navigate("/")
+  //   }
+
+  //   if (data.error) {
+  //     toast.error(data.message)
+  //   }
+
+  // }
+
   const handleLogout = async () => {
-    const fetchData = await fetch(SummaryApi.logout_user.url, {
-      method: SummaryApi.logout_user.method,
-      credentials: 'include'
+    const fetchData = await axios.get(SummaryApi.logout_user.url, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     })
 
-    const data = await fetchData.json()
+    // const data = await fetchData.json()
 
-    if (data.success) {
-      toast.success(data.message)
+    if (fetchData.data.success) {
+      toast.success(fetchData.data.message)
       dispatch(setUserDetails(null))
       navigate("/")
     }
 
-    if (data.error) {
-      toast.error(data.message)
+    if (fetchData.data.error) {
+      toast.error(fetchData.data.message)
     }
 
   }
