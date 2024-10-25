@@ -33,7 +33,7 @@ const Cart = () => {
 
         // const responseData = await response.json()
 
-        if (responseData.success) {
+        if (responseData.data.success) {
             setData(responseData.data.data)
         }
 
