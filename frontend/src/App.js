@@ -221,7 +221,7 @@ function App() {
   // }
 
   const fetchUserAddToCart = async () => {
-    const dataResponse = await fetch(SummaryApi.addToCartProductCount.url, {
+    const dataResponse = await axios.get(SummaryApi.addToCartProductCount.url, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
