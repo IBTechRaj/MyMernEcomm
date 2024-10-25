@@ -230,6 +230,7 @@ function App() {
     // const dataApi = await dataResponse.json()
 
     setCartProductCount(dataResponse?.data?.data?.count)
+    console.log('app.us prod cnt', dataResponse)
   }
 
   useEffect(() => {
