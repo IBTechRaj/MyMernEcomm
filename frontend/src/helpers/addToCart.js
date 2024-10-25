@@ -29,12 +29,12 @@ const addToCart = async (e, id) => {
 
     // const responseData = await response.json()
     console.log('addtocart', responseData)
-    if (responseData.success) {
-        toast.success(responseData.message)
+    if (responseData.data.success) {
+        toast.success(responseData.data.message)
     }
 
-    if (responseData.error) {
-        toast.error(responseData.message)
+    if (responseData.data.error) {
+        toast.error(responseData.data.message)
     }
 
 
