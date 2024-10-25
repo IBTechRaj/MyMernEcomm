@@ -51,25 +51,39 @@ const Cart = () => {
     }, [])
 
 
+    // const increaseQty = async (id, qty) => {
+    //     const response = await fetch(SummaryApi.updateCartProduct.url, {
+    //         method: SummaryApi.updateCartProduct.method,
+    //         credentials: 'include',
+    //         headers: {
+    //             "content-type": 'application/json'
+    //         },
+    //         body: JSON.stringify(
+    //             {
+    //                 _id: id,
+    //                 quantity: qty + 1
+    //             }
+    //         )
+    //     })
+
+    //     const responseData = await response.json()
+
     const increaseQty = async (id, qty) => {
-        const response = await fetch(SummaryApi.updateCartProduct.url, {
-            method: SummaryApi.updateCartProduct.method,
-            credentials: 'include',
+        const responseData = await axios.post(SummaryApi.updateCartProduct.url, {
+            _id: id,
+            quantity: qty + 1
+        }, {
+
             headers: {
-                "content-type": 'application/json'
+                "content-type": 'application/json',
+                'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(
-                {
-                    _id: id,
-                    quantity: qty + 1
-                }
-            )
+
         })
 
-        const responseData = await response.json()
-
-
-        if (responseData.success) {
+        // const responseData = await response.json()
+        console.log('cart incr qty', responseData.data.data)
+        if (responseData.data.success) {
             fetchData()
         }
     }
