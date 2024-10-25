@@ -89,48 +89,93 @@ const Cart = () => {
     }
 
 
+    // const decraseQty = async (id, qty) => {
+    //     if (qty >= 2) {
+    //         const response = await fetch(SummaryApi.updateCartProduct.url, {
+    //             method: SummaryApi.updateCartProduct.method,
+    //             credentials: 'include',
+    //             headers: {
+    //                 "content-type": 'application/json'
+    //             },
+    //             body: JSON.stringify(
+    //                 {
+    //                     _id: id,
+    //                     quantity: qty - 1
+    //                 }
+    //             )
+    //         })
+
+    //         const responseData = await response.json()
+
+
+    //         if (responseData.success) {
+    //             fetchData()
+    //         }
+    //     }
+    // }
+
     const decraseQty = async (id, qty) => {
         if (qty >= 2) {
-            const response = await fetch(SummaryApi.updateCartProduct.url, {
-                method: SummaryApi.updateCartProduct.method,
-                credentials: 'include',
-                headers: {
-                    "content-type": 'application/json'
+            const responseData = await axios.post(SummaryApi.updateCartProduct.url,
+                {
+                    _id: id,
+                    quantity: qty - 1
                 },
-                body: JSON.stringify(
-                    {
-                        _id: id,
-                        quantity: qty - 1
-                    }
-                )
-            })
+                {
+                    headers: {
+                        "content-type": 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                })
 
-            const responseData = await response.json()
+            // const responseData = await response.json()
 
 
-            if (responseData.success) {
+            if (responseData.data.success) {
                 fetchData()
             }
         }
     }
 
+
+    // const deleteCartProduct = async (id) => {
+    //     const response = await fetch(SummaryApi.deleteCartProduct.url, {
+    //         method: SummaryApi.deleteCartProduct.method,
+    //         credentials: 'include',
+    //         headers: {
+    //             "content-type": 'application/json'
+    //         },
+    //         body: JSON.stringify(
+    //             {
+    //                 _id: id,
+    //             }
+    //         )
+    //     })
+
+    //     const responseData = await response.json()
+
+    //     if (responseData.success) {
+    //         fetchData()
+    //         context.fetchUserAddToCart()
+    //     }
+    // }
+
     const deleteCartProduct = async (id) => {
-        const response = await fetch(SummaryApi.deleteCartProduct.url, {
-            method: SummaryApi.deleteCartProduct.method,
-            credentials: 'include',
-            headers: {
-                "content-type": 'application/json'
-            },
-            body: JSON.stringify(
-                {
-                    _id: id,
-                }
-            )
-        })
+        const responseData = await axios.post(SummaryApi.deleteCartProduct.url, {
+            _id: id,
+        },
+            {
+                headers: {
+                    "content-type": 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            }
 
-        const responseData = await response.json()
+        )
 
-        if (responseData.success) {
+        // const responseData = await response.json()
+
+        if (responseData.data.success) {
             fetchData()
             context.fetchUserAddToCart()
         }
